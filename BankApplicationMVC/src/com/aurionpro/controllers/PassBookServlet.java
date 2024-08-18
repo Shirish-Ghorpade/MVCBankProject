@@ -35,11 +35,15 @@ public class PassBookServlet extends HttpServlet {
 		}
 		dbUtil = DbUtil.getDbUtil();
 		Connection connection = dbUtil.connectToDb();
-		int customerID = (int) session.getAttribute("customerID");
-		long senderAccountNumber = dbUtil.getSenderAccountNumber(customerID);
-		System.out.println(senderAccountNumber);
+		String username = (String) session.getAttribute("username");
+		String password = (String) session.getAttribute("password");
 
 		try {
+			int customerID = getCustomerId(username, password, connection);
+			System.out.println("customerID is " +customerID);
+			session.setAttribute("customerID", customerID);
+			long senderAccountNumber = dbUtil.getSenderAccountNumber(customerID);
+			System.out.println(senderAccountNumber);
 			List<Transactions> transactionsList = new ArrayList<>();
 			String sortType = request.getParameter("sort");
 			String sqlQuery = "SELECT SenderAccountNumber, ReceiverAccountNumber, TransactionType, Amount, Date FROM transactions where SenderAccountNumber=?";
