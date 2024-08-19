@@ -11,7 +11,7 @@ This project is a web-based banking application designed to provide secure accou
 - Automatic session timeout after a period of inactivity.
 
 ### User Roles
-- **Admin**: Can perform CRUD operations on user accounts and view all transaction details.
+- **Admin**: Can perform operations on user accounts and view all transaction details.
 - **Customer**: Can transfer funds between accounts and view their transaction history (Passbook).
 
 ### Financial Transactions
@@ -19,7 +19,7 @@ This project is a web-based banking application designed to provide secure accou
 - Each transaction is recorded in the transaction history.
 
 ### Transaction History (Passbook)
-- Customers can view their transaction history over a specified date range.
+- Customers can view their transaction history.
 - Details include date, type of transaction, and amount.
 
 ### Admin Dashboard
